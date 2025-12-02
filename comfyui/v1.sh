@@ -33,6 +33,7 @@ install_uv() {
     if ! command -v uv &>/dev/null; then
         echo "Installing uv package installer..."
         curl -LsSf https://astral.sh/uv/install.sh | sh
+        export PATH="$HOME/.cargo/bin:$PATH"
     else
         echo "uv already installed, skipping..."
     fi
@@ -72,24 +73,17 @@ export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
 export CUDA_LAUNCH_BLOCKING=1
 
 # Create necessary directories
-mkdir -p /workspace/logs
-mkdir -p /workspace/$DIRNAME
+# mkdir -p /workspace/logs
+# mkdir -p /workspace/$DIRNAME
 
-cd /workspace/$DIRNAME
-
-if [ "$USE_VENV" = "true" ]; then
-    python -m venv venv
-    source venv/bin/activate
-fi
-
-pip install uv
+install_uv
 
 # Create dirs and download ComfyUI if it doesn't exist
 if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
     echo "ComfyUI not found or incomplete, installing..."
 
     # Remove incomplete directory if it exists
-    # rm -rf /workspace/$DIRNAME
+    rm -rf /workspace/$DIRNAME
 
     # Create workspace and log directories
     mkdir -p /workspace/logs
@@ -98,6 +92,12 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
 
     # Install dependencies
     cd /workspace/$DIRNAME
+
+    if [ "$USE_VENV" = "true" ]; then
+        python -m venv venv
+        source venv/bin/activate
+    fi
+
     # echo "Installing PyTorch dependencies..."
     # uv pip install --no-cache torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128
     echo "Installing ComfyUI requirements..."
@@ -155,6 +155,12 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
 
 else
     echo "ComfyUI already exists, skipping clone"
+
+    if [ "$USE_VENV" = "true" ]; then
+        source venv/bin/activate
+    fi
+
+fi
 
 # Initialize GPU - Do this before downloading models to ensure GPU is ready
 echo "Initializing GPU..."
