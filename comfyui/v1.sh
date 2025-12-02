@@ -75,6 +75,8 @@ export CUDA_LAUNCH_BLOCKING=1
 mkdir -p /workspace/logs
 mkdir -p /workspace/$DIRNAME
 
+cd /workspace/$DIRNAME
+
 if [ "$USE_VENV" = "true" ]; then
     python -m venv venv
     source venv/bin/activate
@@ -87,7 +89,7 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
     echo "ComfyUI not found or incomplete, installing..."
 
     # Remove incomplete directory if it exists
-    rm -rf /workspace/$DIRNAME
+    # rm -rf /workspace/$DIRNAME
 
     # Create workspace and log directories
     mkdir -p /workspace/logs
