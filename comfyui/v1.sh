@@ -33,7 +33,6 @@ install_uv() {
     if ! command -v uv &>/dev/null; then
         echo "Installing uv package installer..."
         curl -LsSf https://astral.sh/uv/install.sh | sh
-        export PATH="$HOME/.cargo/bin:$PATH"
     else
         echo "uv already installed, skipping..."
     fi
