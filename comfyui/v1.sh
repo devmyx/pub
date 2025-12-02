@@ -75,7 +75,12 @@ export CUDA_LAUNCH_BLOCKING=1
 mkdir -p /workspace/logs
 mkdir -p /workspace/$DIRNAME
 
-install_uv
+if [ "$USE_VENV" = "true" ]; then
+    python -m venv venv
+    source venv/bin/activate
+fi
+
+pip install uv
 
 # Create dirs and download ComfyUI if it doesn't exist
 if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
@@ -88,11 +93,6 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
     mkdir -p /workspace/logs
 
     git clone --depth=1 https://github.com/comfyanonymous/ComfyUI /workspace/$DIRNAME
-
-    if [ "$USE_VENV" = "true" ]; then
-        python -m venv venv
-        source venv/bin/activate
-    fi
 
     # Install dependencies
     cd /workspace/$DIRNAME
@@ -153,11 +153,6 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
 
 else
     echo "ComfyUI already exists, skipping clone"
-
-    if [ "$USE_VENV" = "true" ]; then
-        python -m venv venv
-        source venv/bin/activate
-    fi
 
 # Initialize GPU - Do this before downloading models to ensure GPU is ready
 echo "Initializing GPU..."
