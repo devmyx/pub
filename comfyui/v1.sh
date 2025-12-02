@@ -127,6 +127,9 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
 
     echo "Cloning custom nodes..."
     git clone --depth=1 https://github.com/ltdrdata/ComfyUI-Manager.git
+    git clone --depth=1 https://github.com/rgthree/rgthree-comfy.git
+    git clone --depth=1 https://github.com/crystian/ComfyUI-Crystools.git
+    git clone --depth=1 https://github.com/liusida/ComfyUI-Login.git
 
     # Install custom nodes requirements
     echo "Installing custom node requirements..."
