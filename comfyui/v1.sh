@@ -5,7 +5,7 @@
 apt-get update -y
 apt-get install zip unzip aria2 -y
 
-export USE_SAGE_ATTENTION=${USE_SAGE_ATTENTION:-"true"}
+export USE_SAGE_ATTENTION=${USE_SAGE_ATTENTION:-"false"}
 export USE_VENV=${USE_VENV:-"true"}
 
 export DIRNAME=${DIRNAME:-"comfyui-v1"}
@@ -105,15 +105,17 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
     echo "Installing ComfyUI requirements..."
     uv pip install --no-cache -r requirements.txt
 
-    # Install SageAttention 2.2.0 from prebuilt wheel (no compilation needed)
-    echo "Installing SageAttention 2.2.0 from prebuilt wheel..."
-    uv pip install https://huggingface.co/Kijai/PrecompiledWheels/resolve/main/sageattention-2.2.0-cp312-cp312-linux_x86_64.whl
-    echo "SageAttention 2.2.0 installation complete"
-
-    # Install SageAttention 3 from prebuilt wheel (no compilation needed)
-    echo "Installing SageAttention 3 from prebuilt wheel..."
-    uv pip install https://huggingface.co/vjump21848/sageattention-pre-compiled-wheel/resolve/main/sageattn3-1.0.0%2Bcu128-cp312-cp312-linux_x86_64.whl
-    echo "SageAttention 3 installation complete"
+    if [ "$USE_SAGE_ATTENTION" = "true" ]; then
+        # Install SageAttention 2.2.0 from prebuilt wheel (no compilation needed)
+        echo "Installing SageAttention 2.2.0 from prebuilt wheel..."
+        uv pip install https://huggingface.co/Kijai/PrecompiledWheels/resolve/main/sageattention-2.2.0-cp312-cp312-linux_x86_64.whl
+        echo "SageAttention 2.2.0 installation complete"
+    
+        # Install SageAttention 3 from prebuilt wheel (no compilation needed)
+        echo "Installing SageAttention 3 from prebuilt wheel..."
+        uv pip install https://huggingface.co/vjump21848/sageattention-pre-compiled-wheel/resolve/main/sageattn3-1.0.0%2Bcu128-cp312-cp312-linux_x86_64.whl
+        echo "SageAttention 3 installation complete"
+    fi
     
     cd /workspace/$DIRNAME
 
