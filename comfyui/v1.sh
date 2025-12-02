@@ -76,7 +76,7 @@ export CUDA_LAUNCH_BLOCKING=1
 # mkdir -p /workspace/logs
 # mkdir -p /workspace/$DIRNAME
 
-install_uv
+# install_uv
 
 # Create dirs and download ComfyUI if it doesn't exist
 if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
@@ -97,6 +97,8 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
         python -m venv venv
         source venv/bin/activate
     fi
+
+    pip install uv
 
     # echo "Installing PyTorch dependencies..."
     # uv pip install --no-cache torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128
