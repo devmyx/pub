@@ -156,6 +156,14 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
     "https://cas-bridge.xethub.hf.co/xet-bridge-us/68fd092451919feb91c16688/e45eb1fbcc4d51b50cd6eaf2cbb19e9d5f10feb2cb0f9e520b4bb94d0854551e?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20251202%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251202T191344Z&X-Amz-Expires=3600&X-Amz-Signature=c6c2f1148af4949c46208338f2ea5014a8b283a38023fa50f0769eb2f23d5744&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=681db67072c5da00cdd61629&response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27smoothMixWan22I2VT2V_t2vLowV20_Q8_0.gguf%3B+filename%3D%22smoothMixWan22I2VT2V_t2vLowV20_Q8_0.gguf%22%3B&x-id=GetObject&Expires=1764706424&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2NDcwNjQyNH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82OGZkMDkyNDUxOTE5ZmViOTFjMTY2ODgvZTQ1ZWIxZmJjYzRkNTFiNTBjZDZlYWYyY2JiMTllOWQ1ZjEwZmViMmNiMGY5ZTUyMGI0YmI5NGQwODU0NTUxZSoifV19&Signature=CVAFjciaKI6FOh3DPR3mmKPzxfnSCRdEHbs8eKvZ3OVgSmly5SLLnyfHFoWeL7zTC0o50czIsWdOU8Wno1cDREw8m4p8OM1%7E1yswsWQ78jjbJQaqYTdps24hDZkx55JejU0kmpY2e6ssdJ2rmaCLil9ogp6D8WA0ljqNsdDZ0rydI9BexFcsvh6CTa6lVL4kecyOsLGCifiHj%7E%7E3QriwHCsUXmmtAkaomepdyARNBQkHUeP-LgcN7yKEuPk4W80n4zqSIhJXdHfmRZB722F%7EyYmVOt25btgktOz57aKEgx3GZVLUyl98HiMyHURchnFSt39ddHlEmjgZGAF%7EkR0PYQ__&Key-Pair-Id=K2L8F4GPSG1IFC" \
     "/workspace/$DIRNAME/models/diffusion_models/smoothMixWan22I2VT2V_t2vLowV20_Q8_0.gguf"
 
+    download_model \
+    "https://huggingface.co/KeyOpening8063587/SMOOTHXXX/resolve/main/SmoothXXXAnimation_High.safetensors" \
+    "/workspace/$DIRNAME/models/loras/SmoothXXXAnimation_High.safetensors"
+
+    download_model \
+    "https://huggingface.co/KeyOpening8063587/SMOOTHXXX/resolve/main/SmoothXXXAnimation_Low.safetensors" \
+    "/workspace/$DIRNAME/models/loras/SmoothXXXAnimation_High.safetensors"
+
     # download_model \
     # "civita?token={api_key}" \
     # "/workspace/$DIRNAME/models/diffusion_models/wan2.2_t2v_low_noise_14B_fp16.safetensors"
