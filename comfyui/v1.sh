@@ -141,8 +141,12 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
     echo "Downloading essential models..."
 
     download_model \
-    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp16.safetensors" \
-    "/workspace/$DIRNAME/models/diffusion_models/wan2.2_t2v_low_noise_14B_fp16.safetensors"
+    "https://huggingface.co/BigDannyPt/WAN-2.2-SmoothMix-GGUF/resolve/main/v2.0/High/smoothMixWan22I2VT2V_t2vHighV20_Q8_0.gguf" \
+    "/workspace/$DIRNAME/models/diffusion_models/smoothMixWan22I2VT2V_t2vHighV20_Q8_0.gguf"
+
+    download_model \
+    "https://huggingface.co/BigDannyPt/WAN-2.2-SmoothMix-GGUF/resolve/main/v2.0/Low/smoothMixWan22I2VT2V_t2vLowV20_Q8_0.gguf" \
+    "/workspace/$DIRNAME/models/diffusion_models/smoothMixWan22I2VT2V_t2vLowV20_Q8_0.gguf"
 
     # download_model \
     # "civita?token={api_key}" \
