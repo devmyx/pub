@@ -162,7 +162,16 @@ if [ ! -e "/workspace/$DIRNAME/main.py" ]; then
 
     download_model \
     "https://huggingface.co/KeyOpening8063587/SMOOTHXXX/resolve/main/SmoothXXXAnimation_Low.safetensors" \
-    "/workspace/$DIRNAME/models/loras/SmoothXXXAnimation_High.safetensors"
+    "/workspace/$DIRNAME/models/loras/SmoothXXXAnimation_Low.safetensors"
+
+    download_model \
+    "https://huggingface.co/ratoenien/umt5_xxl_fp8_e4m3fn_scaled/resolve/main/umt5_xxl_fp8_e4m3fn_scaled.safetensors" \
+    "/workspace/$DIRNAME/models/clip/umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+
+    download_model \
+    "https://huggingface.co/Osrivers/wan_2.1_vae.safetensors/resolve/main/wan_2.1_vae.safetensors" \
+    "/workspace/$DIRNAME/models/vae/wan_2.1_vae.safetensors"
+    
 
     # download_model \
     # "civita?token={api_key}" \
