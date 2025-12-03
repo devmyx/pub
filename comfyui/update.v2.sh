@@ -36,6 +36,9 @@ cd $COMFYUI_DIR
 # --use-sage-attention
 # --disable-xformers
 
+# mv models _models
+# ln -sT "/workspace/space/comfyui/models" models
+
 echo "END"
 
 # Wait for all processes
