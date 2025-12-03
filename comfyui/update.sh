@@ -16,6 +16,8 @@ cd $COMFYUI_DIR
 
 source $VENV_DIR/bin/activate
 
+pip install uv
+
 uv pip install https://huggingface.co/Kijai/PrecompiledWheels/resolve/main/sageattention-2.2.0-cp312-cp312-linux_x86_64.whl
 uv pip install https://huggingface.co/vjump21848/sageattention-pre-compiled-wheel/resolve/main/sageattn3-1.0.0%2Bcu128-cp312-cp312-linux_x86_64.whl
 
