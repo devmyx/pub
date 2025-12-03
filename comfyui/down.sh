@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DIRNAME=${DIRNAME:-"runpod-slim/ComfyUI"}
+
 apt-get update -y
 apt-get install zip unzip aria2 -y
 
