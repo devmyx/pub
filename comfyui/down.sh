@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# bash <(wget -qO- https://raw.githubusercontent.com/devmyx/pub/refs/heads/main/comfyui/down.sh)
+
 export DIRNAME=${DIRNAME:-"runpod-slim/ComfyUI"}
 
 apt-get update -y
